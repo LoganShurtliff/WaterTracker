@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WaterTracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <details class="settings-menu">
+        <summary aria-label="Settings" title="Settings"><span aria-hidden="true">⚙</span></summary>
+        <div class="settings-panel">
+          <h2>Bottle size</h2>
+          <p class="hint">Changes apply to future bottles.</p>
+          <form id="bottle-form" novalidate>
+            <label for="bottle-size">Ounces per bottle</label>
+            <div class="input-row">
+              <input id="bottle-size" type="number" step="any" value="24" aria-describedby="bottle-message">
+              <button type="submit">Save size</button>
+            </div>
+            <p id="bottle-message" role="status"></p>
+          </form>
+        </div>
+      </details>
+      <div class="header-copy">
+      <p class="eyebrow">Drink your water, keep track while you go</p>
+      <h1>WaterTracker</h1>
+      <p>Keep track of your water today.</p>
+      </div>
+    </header>
+
+    <section class="total-card" aria-labelledby="total-heading">
+    <h2 id="total-heading">Today’s total</h2>
+    <p id="total" aria-live="polite" aria-atomic="true">0 oz</p>
+    </section>
+
+    <div class="settings-grid">
+    <section aria-labelledby="bottle-heading">
+    <h2 id="bottle-heading">Add a bottle</h2>
+    <p class="hint">Log a full bottle in one click.</p>
+    <button id="add-bottle" type="button">+1 bottle (24 oz)</button>
+    </section>
+
+    <section aria-labelledby="custom-heading">
+    <h2 id="custom-heading">Add a custom amount</h2>
+    <p class="hint">Every sip counts. Fractions are welcome.</p>
+    <form id="custom-form" novalidate>
+      <label class="visually-hidden" for="custom-amount">Amount in ounces</label>
+      <div class="input-row">
+        <input id="custom-amount" type="number" step="any" placeholder="e.g. 2.5" aria-describedby="custom-message">
+        <button type="submit">Add</button>
+      </div>
+      <p id="custom-message" role="status"></p>
+    </form>
+    </section>
+    </div>
+
+    <section aria-labelledby="drinks-heading">
+    <h2 id="drinks-heading">Today’s drinks</h2>
+    <p id="empty-message">No drinks yet. Add a bottle or a custom amount to get started.</p>
+    <ul id="drink-list" aria-label="Today’s drink entries"></ul>
+    </section>
+
+    <p id="storage-note" class="note" role="status">
+      Drinks and bottle size are saved in this browser.
+      Each new local day starts with an empty drink list.
+    </p>
+  </main>
+</body>
+</html>
